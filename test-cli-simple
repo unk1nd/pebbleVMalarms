@@ -1,0 +1,4 @@
+$output = foreach ($alarm in Get-AlarmAction) { $alarm | Select-Object @{N="Alarm";E={$_.AlarmDefinition}}, @{N="Action Type";E={$_.ActionType}}, @{N="Trigger";E={[string]::Joi
+n(",",($_.Trigger))}} }
+$output | Export-CSV "C:\alarm.csv"
+ 
